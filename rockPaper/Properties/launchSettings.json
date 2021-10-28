@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "rockPaper": {
+      "commandName": "Project",
+      "commandLineArgs": "rock paper scissors"
+    }
+  }
+}
