@@ -29,8 +29,7 @@ namespace rockPaper
 
                     Console.WriteLine("\n HMAC: {0}", hmac);
 
-                    Console.WriteLine("\n Enter your move, or '?' for help,  or '0' for exit:");
-                    //bool c = Int32.TryParse(Console.ReadLine(), out userMove);
+                    Console.WriteLine("\n Enter your move, or '?' for help,  or '0' for exit:");                    
                     string userCons = Console.ReadLine();
                     if (userCons == "?")
                     {
