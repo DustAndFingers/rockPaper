@@ -29,12 +29,10 @@ namespace rockPaper
 
                     Console.WriteLine("\n HMAC: {0}", hmac);
 
-                    Console.WriteLine("\n Enter your move, or '?' for help,  or '0' for exit:");                    
+                    Console.WriteLine("\n Enter your move, or '?' for help,  or '0' for exit:");
                     string userCons = Console.ReadLine();
                     if (userCons == "?")
                     {
-
-
                         var table = new ConsoleTable("", "Rock", "Paper", "Scissors");
                         table.AddRow("Rock", "Draw", "Win", "Defeat")
                              .AddRow("Paper", "Defeat", "Draw", "Win");
@@ -55,21 +53,16 @@ namespace rockPaper
                     bool c = Int32.TryParse(userCons, out userMove);
                     if (userMove == 0 && c) break;
 
-
                     Regulations.Moves(userMove, args, cpuMove, key);
 
                     Console.WriteLine("Press 'Escape' for exit or any else key for next game");
                     if (Console.ReadKey().Key == ConsoleKey.Escape) break;
                     Console.Clear();
-
                 }
             }
-            else Console.WriteLine("The number of arguments is even, not unique, or less than 3, for example: dotnet run rock paper scissors lizard Spock");
+            else Console.WriteLine("The number of arguments is even, not unique, or less than 3, for example: rock paper scissors lizard spock etc. ");
         }
-
-
-
-        public static int GetRandomNumber(int range)
+                public static int GetRandomNumber(int range)
         {
             byte[] random = new byte[1];
 
@@ -77,7 +70,7 @@ namespace rockPaper
             {
                 provider.GetBytes(random);
             }
-            return ((random[0] % range));
+            return (random[0] % range);
         }
     }
 }
