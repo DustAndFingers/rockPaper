@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Runtime.InteropServices;
 using ConsoleTables;
 
 namespace rockPaper
