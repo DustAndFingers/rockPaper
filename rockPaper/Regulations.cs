@@ -11,18 +11,18 @@ namespace rockPaper
                 Console.WriteLine("Your move is: {0}", ar[us - 1]);
                 Console.WriteLine("Computer move: {0}", ar[cp]);
                 var half = (ar.Length - 1) / 2;
-
-                if (us - cp - 1 == 0)
+                cp += 1;
+                if (us - cp == 0)
                 {
                     Console.WriteLine("\n  Draw  ");
                 }
-                else if (Math.Abs(cp - us) <= half && cp - us > 0 || Math.Abs(cp - us) >= half && cp - us < 0)
+                else if (Math.Abs(us - cp) <= half && us - cp > 0 || Math.Abs(us - cp) >= half && us - cp < 0)
                 {
-                    Console.WriteLine("\n  Victory  ");
+                    Console.WriteLine("\n  Lost  ");
                 }
                 else
                 {
-                    Console.WriteLine("\n  Lost  ");
+                    Console.WriteLine("\n  Victory  ");
                 }
                 Console.WriteLine("\n HMAC key: {0} \n", ke);
             }

@@ -33,22 +33,47 @@ namespace rockPaper
                     string userCons = Console.ReadLine();
                     if (userCons == "?")
                     {
-                        var table = new ConsoleTable("", "Rock", "Paper", "Scissors");
-                        table.AddRow("Rock", "Draw", "Win", "Defeat")
-                             .AddRow("Paper", "Defeat", "Draw", "Win");
+                        if (args.Length == 3)
+                        {
+                            var table = new ConsoleTable("User/Cpu", args[0], args[1], args[2]);
+                            table.AddRow($"{args[0]}", "Draw", "Lose", "Win")
+                                 .AddRow($"{args[1]}", "Win", "Draw", "Lose")
+                                 .AddRow($"{args[2]}", "Lose", "Win", "Draw");
 
-                        table.Write();
-                        Console.WriteLine();
+                            table.Write();
+                            Console.WriteLine();
+                        }
+                        else if (args.Length == 5)
+                        {
+                            {
+                                var table = new ConsoleTable("User/Cpu", args[0], args[1], args[2], args[3], args[4]);
+                                table.AddRow($"{args[0]}", "Draw", "Win", "Win", "Lose", "Lose")
+                                     .AddRow($"{args[1]}", "Win", "Draw", "Win", "Win", "Lose")
+                                     .AddRow($"{args[2]}", "Lose", "Lose", "Draw", "Win", "Win")
+                                     .AddRow($"{args[3]}", "Win", "Lose", "Lose", "Draw", "Win")
+                                     .AddRow($"{args[4]}", "Win", "Win", "Lose", "Lose", "Draw"); 
 
-                        var rows = Enumerable.Repeat(new Regulations(), 10);
+                                table.Write();
+                                Console.WriteLine();
+                            }
+                        }
+                        else
+                        {
+                            var table = new ConsoleTable("User/Cpu", args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
+                            table.AddRow($"{args[0]}", "Draw", "Win", "Win", "Win", "Lose", "Lose", "Lose")
+                                 .AddRow($"{args[1]}", "Lose", "Draw", "Win", "Win", "Win", "Lose", "Lose")
+                                 .AddRow($"{args[2]}", "Lose", "Lose", "Draw", "Win", "Win", "Win", "Lose")
+                                 .AddRow($"{args[3]}", "Lose", "Lose", "Lose", "Draw", "Win", "Win", "Win")
+                                 .AddRow($"{args[4]}", "Win", "Lose", "Lose", "Lose", "Draw", "Win", "Win")
+                                 .AddRow($"{args[5]}", "Win", "Win", "Lose", "Lose", "Lose", "Draw", "Win")
+                                 .AddRow($"{args[6]}", "Win", "Win", "Win", "Lose", "Lose", "Lose", "Draw");
 
-                        ConsoleTable
-                            .From<Regulations>(rows)
-                            .Configure(o => o.NumberAlignment = Alignment.Right)
-                            .Write(Format.Alternative);
+                            table.Write();
+                            Console.WriteLine();
 
-                        Console.ReadKey();
-                        continue;
+                        }
+
+
                     }
                     bool c = Int32.TryParse(userCons, out userMove);
                     if (userMove == 0 && c) break;
@@ -62,7 +87,7 @@ namespace rockPaper
             }
             else Console.WriteLine("The number of arguments is even, not unique, or less than 3, for example: rock paper scissors lizard spock etc. ");
         }
-                public static int GetRandomNumber(int range)
+        public static int GetRandomNumber(int range)
         {
             byte[] random = new byte[1];
 
